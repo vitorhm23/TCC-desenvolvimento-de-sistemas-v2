@@ -145,16 +145,8 @@
                 eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te
                 feugait nulla facilisi.</p>
         </div><!--center-->
-
-        <div class="arrow"></div>
-    </div><!--container-2-->
-
-    <div class="footer">
-        <p>Todos os direitos reservados</p>
-        <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
-    </div><!--footer-->
-
-    <!-- Código JavaScript direto no HTML -->
+	    
+	     <!-- Código JavaScript direto no HTML -->
     <script>
         function calcularEndividamento() {
             // Obtém os valores de receita e despesa
@@ -171,13 +163,24 @@
             var endividamento = despesa - receita;
 
             // Exibe o resultado para o usuário
-            if (endividamento > 0) {
+            if (endividamento >= 0) {
                 document.getElementById('resultado').innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
+            } if (endividamento = 0) {
+                document.getElementById('resultado').innerHTML = "Você está completamente zerado";
             } else {
                 document.getElementById('resultado').innerHTML = "Parabéns! Você não está endividado.";
             }
         }
     </script>
+
+
+        <div class="arrow"></div>
+    </div><!--container-2-->
+
+    <div class="footer">
+        <p>Todos os direitos reservados</p>
+        <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
+    </div><!--footer-->
 
 	</body>
 
