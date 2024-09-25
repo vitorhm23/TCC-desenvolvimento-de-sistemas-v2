@@ -290,4 +290,64 @@ html,body{
 		max-width: 600px;
 		padding:30px 0;
 	}
+	/* Centraliza o conteúdo */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilização para o cálculo de endividamento */
+.container-endividamento {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.input-container {
+    margin: 10px 0;
+    display: inline-block;
+    text-align: left;
+    width: 45%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.input-submit-container {
+    margin-top: 20px;
+}
+
+.input-submit-container button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-submit-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Alinhamento dos campos de receita e despesa */
+.receita {
+    float: left;
+}
+
+.despesa {
+    float: right;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+	
 }
