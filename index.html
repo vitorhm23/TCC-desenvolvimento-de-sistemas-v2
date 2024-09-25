@@ -114,6 +114,69 @@
 		<p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
 	</div><!--footer-->
 
+		   <!-- Nova seção para cálculo de endividamento -->
+    <div class="container-endividamento">
+        <div class="center">
+            <h2>Calcular Endividamento</h2>
+            <div class="input-container">
+                <span>Receitas:</span>
+                <input type="number" id="receita" placeholder="Digite o valor das receitas" />
+            </div>
+            <div class="input-container">
+                <span>Despesas:</span>
+                <input type="number" id="despesa" placeholder="Digite o valor das despesas" />
+            </div>
+            <div class="input-submit-container">
+                <button type="button" onclick="calcularEndividamento()">Calcular</button>
+            </div>
+            <p id="resultado"></p>
+        </div><!--center-->
+    </div><!--container-endividamento-->
+
+    <div class="container-2">
+        <div class="center">
+            <h2>Lorem ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+                hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+                eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+        </div><!--center-->
+
+        <div class="arrow"></div>
+    </div><!--container-2-->
+
+    <div class="footer">
+        <p>Todos os direitos reservados</p>
+        <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
+    </div><!--footer-->
+
+    <!-- Código JavaScript direto no HTML -->
+    <script>
+        function calcularEndividamento() {
+            // Obtém os valores de receita e despesa
+            var receita = parseFloat(document.getElementById('receita').value);
+            var despesa = parseFloat(document.getElementById('despesa').value);
+
+            // Verifica se os valores são válidos
+            if (isNaN(receita) || isNaN(despesa)) {
+                document.getElementById('resultado').innerHTML = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            // Calcula o endividamento
+            var endividamento = despesa - receita;
+
+            // Exibe o resultado para o usuário
+            if (endividamento > 0) {
+                document.getElementById('resultado').innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
+            } else {
+                document.getElementById('resultado').innerHTML = "Parabéns! Você não está endividado.";
+            }
+        }
+    </script>
+
 	</body>
 
 </html>
