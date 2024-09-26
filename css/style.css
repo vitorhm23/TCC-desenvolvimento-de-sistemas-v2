@@ -334,7 +334,6 @@ html,body{
 .input-submit-container button:hover {
     background-color: #0056b3;
 }
-
 /* Alinhamento dos campos de receita e despesa */
 .receita {
     float: left;
