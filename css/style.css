@@ -284,14 +284,6 @@ html, body {
     }
 }
 
-/* Centraliza o conteúdo */
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 /* Estilização para o cálculo de endividamento */
 .container-endividamento {
     margin-top: 50px;
