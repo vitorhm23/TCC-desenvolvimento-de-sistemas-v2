@@ -4,12 +4,11 @@
 
 <head>
     <title>Projeto TCC</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
     <meta charset="utf-8" />
-
    <!-- <style>
-        /* Estilo para o título h1 */
         h1 {
-            color: #3498db;
+            color: #3498db; /* Cor azul para o título */
             text-align: center;
             font-size: 2em;
         }
@@ -20,29 +19,29 @@
             margin: 0 auto;
         }
 
-        /* Estilo para os inputs e botões */
+        .container-banner,
+        .container-endividamento,
+        .container-2 {
+            padding: 20px;
+        }
+
         .input-container input,
         .input-submit-container button {
             width: 100%;
             margin-bottom: 10px;
         }
 
-        /* Estilo para o texto de alerta */
         .warning-text {
             color: red;
             font-weight: bold;
         }
 
-        /* Esconde o link do vídeo quando não necessário */
-        #video-link,
-        #zerado-link {
+        #video-link {
             display: none;
             margin-top: 10px;
         }
 
-        /* Esconde a mensagem de perigo e a de saldo zerado por padrão */
-        #danger-message,
-        #zerado-message {
+        #danger-message {
             display: none;
             margin-top: 10px;
             color: red;
@@ -52,13 +51,11 @@
 
 <body>
 
-    <!-- Cabeçalho -->
     <div class="header">
         <div class="center">
         </div><!--center-->
     </div><!--header-->
 
-    <!-- Banner -->
     <div class="container-banner">
         <div class="center">
             <div>
@@ -79,31 +76,31 @@
                         <div class="input-container">
                             <span>Nome*</span>
                             <input type="text" name="nome" required />
-                        </div>
+                        </div><!--input-container-->
 
                         <div class="input-container">
                             <span>E-mail*</span>
                             <input type="text" name="email" required />
-                        </div>
+                        </div><!--input-container-->
 
                         <div class="input-container">
                             <span>Telefone*</span>
                             <input type="text" name="telefone" required />
-                        </div>
+                        </div><!--input-container-->
 
                         <p class="warning">*Campos obrigatórios</p>
 
                         <div class="input-submit-container">
                             <input type="submit" name="acao" value="Enviar">
-                        </div>
+                        </div><!--input-submit-container-->
                     </form>
-                </div>
+                </div><!--form-->
             </div>
             <div class="clear"></div>
         </div><!--center-->
     </div><!--container-banner-->
 
-    <!-- Seção de cálculo de endividamento -->
+    <!-- Seção para cálculo de endividamento -->
     <div class="container-endividamento">
         <div class="center">
             <h2>Calcular Endividamento</h2>
@@ -119,17 +116,11 @@
                 <button type="button" onclick="calcularEndividamento()">Calcular</button>
             </div>
             <p id="resultado"></p>
-            <!-- Link para o vídeo educativo (aparece quando endividado) -->
-            <a id="video-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Clique aqui para ver o vídeo educativo</a>
-            <!-- Mensagem de perigo quando endividado -->
+            <a id="video-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Clique aqui para ter acesso ao vídeo educativo</a>
             <p id="danger-message" class="warning-text">Estar endividado pode trazer sérias consequências, como o aumento de juros, restrições de crédito e estresse financeiro. Procure ajuda e organize suas finanças!</p>
-            <!-- Mensagem e link para quando estiver zerado -->
-            <p id="zerado-message" class="warning-text">Ter saldo zerado pode ser arriscado, pois não há margem para imprevistos. Procure poupar e planejar seus gastos!</p>
-            <a id="zerado-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Clique aqui para ver dicas sobre como poupar!</a>
         </div><!--center-->
     </div><!--container-endividamento-->
 
-    <!-- Seção sobre o site -->
     <div class="container-2">
         <div class="center">
             <h2>Sobre o site</h2>
@@ -139,13 +130,12 @@
         <div class="arrow"></div>
     </div><!--container-2-->
 
-    <!-- Rodapé -->
     <div class="footer">
         <p>Todos os direitos reservados</p>
         <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
     </div><!--footer-->
 
-    <!-- JavaScript para o cálculo de endividamento -->
+    <!-- Código JavaScript -->
     <script>
         function calcularEndividamento() {
             // Obtém os valores de receita e despesa
@@ -154,14 +144,10 @@
             var resultadoElement = document.getElementById('resultado');
             var videoLink = document.getElementById('video-link');
             var dangerMessage = document.getElementById('danger-message');
-            var zeradoMessage = document.getElementById('zerado-message');
-            var zeradoLink = document.getElementById('zerado-link');
 
-            // Limpa as mensagens e links anteriores
+            // Limpa o link e o texto de aviso anteriores
             videoLink.style.display = "none";
             dangerMessage.style.display = "none";
-            zeradoMessage.style.display = "none";
-            zeradoLink.style.display = "none";
             resultadoElement.innerHTML = "";
 
             // Verifica se os valores são válidos
@@ -173,15 +159,11 @@
             // Calcula o endividamento
             var endividamento = despesa - receita;
 
-            // Exibe a mensagem adequada dependendo do valor
+            // Exibe o resultado para o usuário
             if (endividamento > 0) {
                 resultadoElement.innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
-                videoLink.style.display = "block";
-                dangerMessage.style.display = "block";
-            } else if (endividamento === 0) {
-                resultadoElement.innerHTML = "Seu saldo está zerado.";
-                zeradoMessage.style.display = "block";
-                zeradoLink.style.display = "block";
+                videoLink.style.display = "block"; // Mostra o link do vídeo
+                dangerMessage.style.display = "block"; // Mostra o aviso de perigo
             } else {
                 resultadoElement.innerHTML = "Parabéns! Você não está endividado.";
             }
@@ -191,4 +173,8 @@
 </body>
 
 </html>
+
+
+
+
 
