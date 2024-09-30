@@ -1,4 +1,5 @@
-<doctype html>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -110,12 +111,26 @@
             // Exibe o resultado para o usuário
             if (endividamento > 0) {
                 document.getElementById('resultado').innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
+                // Redireciona para um vídeo no YouTube
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Substitua este link pelo vídeo que deseja
             } else {
                 document.getElementById('resultado').innerHTML = "Parabéns! Você não está endividado.";
             }
         }
     </script>
-    
+
 </body>
 
 </html>
+
+Alterações realizadas:
+
+1. Quando o usuário estiver endividado (endividamento > 0), será exibida a mensagem "Você está endividado em: R$ X" e o usuário será redirecionado automaticamente para o link do YouTube definido na linha window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";.
+
+
+2. Você pode substituir o link pelo vídeo que preferir.
+
+
+
+Agora, quando o cálculo indicar endividamento, o site redirecionará o usuário para o vídeo no YouTube.
+
