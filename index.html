@@ -6,6 +6,47 @@
     <title>Projeto TCC</title>
     <link href="css/style.css" type="text/css" rel="stylesheet" />
     <meta charset="utf-8" />
+   /* <style>
+        h1 {
+            color: #3498db; /* Cor azul para o título */
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .center {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container-banner,
+        .container-endividamento,
+        .container-2 {
+            padding: 20px;
+        }
+
+        .input-container input,
+        .input-submit-container button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .warning-text {
+            color: red;
+            font-weight: bold;
+        }
+
+        #video-link {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #danger-message {
+            display: none;
+            margin-top: 10px;
+            color: red;
+        }
+    </style> */
 </head>
 
 <body>
@@ -23,7 +64,7 @@
                         <h1>Site feito pelo grupo 03, turma DWI</h1>
                         <li>Daniel da Silva de Lima</li>
                         <li>Júlio Cesar de Sousa Pimentel</li>
-                        <li>luan Alexandre Lima da Silva</li>
+                        <li>Luan Alexandre Lima da Silva</li>
                         <li>Vitor Hugo Moreira dos Santos</li>
                     </ul>
                 </div><!--container-list-->
@@ -39,12 +80,12 @@
 
                         <div class="input-container">
                             <span>E-mail*</span>
-                            <input type="text" name="nome" required />
+                            <input type="text" name="email" required />
                         </div><!--input-container-->
 
                         <div class="input-container">
                             <span>Telefone*</span>
-                            <input type="text" name="nome" required />
+                            <input type="text" name="telefone" required />
                         </div><!--input-container-->
 
                         <p class="warning">*Campos obrigatórios</p>
@@ -59,7 +100,7 @@
         </div><!--center-->
     </div><!--container-banner-->
 
-    <!-- Nova seção para cálculo de endividamento -->
+    <!-- Seção para cálculo de endividamento -->
     <div class="container-endividamento">
         <div class="center">
             <h2>Calcular Endividamento</h2>
@@ -75,6 +116,8 @@
                 <button type="button" onclick="calcularEndividamento()">Calcular</button>
             </div>
             <p id="resultado"></p>
+            <a id="video-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Clique aqui para ter acesso ao vídeo educativo</a>
+            <p id="danger-message" class="warning-text">Estar endividado pode trazer sérias consequências, como o aumento de juros, restrições de crédito e estresse financeiro. Procure ajuda e organize suas finanças!</p>
         </div><!--center-->
     </div><!--container-endividamento-->
 
@@ -92,16 +135,24 @@
         <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
     </div><!--footer-->
 
-    <!-- Código JavaScript direto no HTML -->
+    <!-- Código JavaScript -->
     <script>
         function calcularEndividamento() {
             // Obtém os valores de receita e despesa
             var receita = parseFloat(document.getElementById('receita').value);
             var despesa = parseFloat(document.getElementById('despesa').value);
+            var resultadoElement = document.getElementById('resultado');
+            var videoLink = document.getElementById('video-link');
+            var dangerMessage = document.getElementById('danger-message');
+
+            // Limpa o link e o texto de aviso anteriores
+            videoLink.style.display = "none";
+            dangerMessage.style.display = "none";
+            resultadoElement.innerHTML = "";
 
             // Verifica se os valores são válidos
             if (isNaN(receita) || isNaN(despesa)) {
-                document.getElementById('resultado').innerHTML = "Por favor, insira valores válidos.";
+                resultadoElement.innerHTML = "Por favor, insira valores válidos.";
                 return;
             }
 
@@ -110,11 +161,11 @@
 
             // Exibe o resultado para o usuário
             if (endividamento > 0) {
-                document.getElementById('resultado').innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
-                // Redireciona para um vídeo no YouTube
-                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Substitua este link pelo vídeo que deseja
+                resultadoElement.innerHTML = "Você está endividado em: R$ " + endividamento.toFixed(2);
+                videoLink.style.display = "block"; // Mostra o link do vídeo
+                dangerMessage.style.display = "block"; // Mostra o aviso de perigo
             } else {
-                document.getElementById('resultado').innerHTML = "Parabéns! Você não está endividado.";
+                resultadoElement.innerHTML = "Parabéns! Você não está endividado.";
             }
         }
     </script>
@@ -122,4 +173,8 @@
 </body>
 
 </html>
+
+
+
+
 
